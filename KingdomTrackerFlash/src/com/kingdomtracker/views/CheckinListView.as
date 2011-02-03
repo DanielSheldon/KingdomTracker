@@ -1,4 +1,4 @@
-package com.kingdomtracker
+package com.kingdomtracker.views
 {
 	import flash.display.Sprite;
 	

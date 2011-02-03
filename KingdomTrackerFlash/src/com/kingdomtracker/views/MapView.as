@@ -1,9 +1,10 @@
-package com.kingdomtracker
+package com.kingdomtracker.views
 {
 	import com.google.maps.Map;
 	import com.google.maps.MapOptions;
 	
 	import flash.display.Sprite;
+	import flash.geom.Point;
 	
 	public class MapView extends Sprite
 	{
@@ -12,16 +13,20 @@ package com.kingdomtracker
 		private var _map:Map;
 		private var _mapOptions:MapOptions;
 		
-		public function MapView()
+		public function MapView(width:Number = 200, height:Number = 200)
 		{
 			super();
 			initMap();
+			
+			this.width = width;
+			this.height = height;
 		}
 		
 		private function initMap():void
 		{
 			_mapOptions = new MapOptions();
 			_mapOptions.scrollWheelZoom = true;
+
 			
 			_map = new Map();
 			_map.key = API_KEY;
@@ -29,6 +34,16 @@ package com.kingdomtracker
 			_map.setInitOptions(_mapOptions);
 			
 			addChild(_map);
+		}
+		
+		override public function set width(value:Number):void
+		{
+			_map.width = value;
+		}
+		
+		override public function set height(value:Number):void
+		{	
+			_map.height = value;
 		}
 	}
 }

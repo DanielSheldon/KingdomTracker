@@ -1,8 +1,9 @@
 package
 {
-	import com.kingdomtracker.MapView;
 	import com.google.maps.Map;
 	import com.google.maps.MapOptions;
+	import com.kingdomtracker.views.CheckinListView;
+	import com.kingdomtracker.views.MapView;
 	
 	import flash.display.Sprite;
 	
@@ -11,6 +12,7 @@ package
 	public class Main extends Sprite
 	{
 		private var _mapView:MapView;
+		private var _checkinListView:CheckinListView;
 		
 		public function Main()
 		{
@@ -19,7 +21,11 @@ package
 		
 		private function setupUI():void
 		{
-			_mapView = new MapView();
+			_checkinListView = new CheckinListView();
+			addChild(_checkinListView);
+			
+			_mapView = new MapView(550,450);
+			_mapView.x = 200;
 			addChild(_mapView);
 		}
 	}
